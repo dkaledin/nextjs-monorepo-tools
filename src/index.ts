@@ -39,7 +39,7 @@ export function patchWebpackConfig({ commonDirs }: PatchWebpackConfigParams) {
       };
 
       const resolverPathsOfCommonDirectories = commonDirs.map<string>((dir) =>
-        path.resolve(__dirname, dir)
+        path.resolve(process.cwd(), dir)
       );
 
       ((patchedConfig.module?.rules[0]?.include as string[]) || []).push(
@@ -58,7 +58,9 @@ let index = 0;
 
 function findFilepath(filename: string, currentPath: string[] = []): string {
   ++index;
-  const resolvedPath = path.resolve(...currentPath, filename);
+  const resolvedPath = path.resolve(process.cwd(), ...currentPath, filename);
+
+  console.log("resolvedPath", resolvedPath);
 
   if (index > 10) {
     return "fail_path";

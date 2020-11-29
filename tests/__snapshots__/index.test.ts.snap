@@ -12,7 +12,7 @@ Object {
           /next\\[\\\\\\\\/\\]dist\\[\\\\\\\\/\\]client/,
           /next\\[\\\\\\\\/\\]dist\\[\\\\\\\\/\\]pages/,
           /\\[\\\\\\\\/\\]\\(strip-ansi\\|ansi-regex\\)\\[\\\\\\\\/\\]/,
-          "/Users/g0bl1n/projects/nextjs-monorepo-tools/src/libs",
+          "/Users/g0bl1n/projects/nextjs-monorepo-tools/libs",
         ],
         "test": /\\\\\\.\\(tsx\\|ts\\|js\\|mjs\\|jsx\\)\\$/,
         "use": Object {
