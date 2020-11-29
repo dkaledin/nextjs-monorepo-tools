@@ -1,0 +1,26 @@
+{
+  "name": "nextjs-monorepo-tools",
+  "version": "0.0.1",
+  "description": "This package contains tools for converting NextJs project to monorepository",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "Dmitriy Kaledin",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "prepublish": "yarn test && yarn build"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-typescript": "^7.12.7",
+    "@types/jest": "^26.0.15",
+    "@types/webpack": "^4.41.25",
+    "babel-jest": "^26.6.3",
+    "jest": "^26.6.3",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.1.2"
+  }
+}

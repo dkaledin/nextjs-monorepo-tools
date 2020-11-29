@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return expected Webpack configureation 1`] = `
+Object {
+  "module": Object {
+    "rules": Array [
+      Object {
+        "exclude": Array [],
+        "include": Array [
+          "/example-user-directory/next-project/apps/nest-app",
+          /next\\[\\\\\\\\/\\]dist\\[\\\\\\\\/\\]next-server\\[\\\\\\\\/\\]lib/,
+          /next\\[\\\\\\\\/\\]dist\\[\\\\\\\\/\\]client/,
+          /next\\[\\\\\\\\/\\]dist\\[\\\\\\\\/\\]pages/,
+          /\\[\\\\\\\\/\\]\\(strip-ansi\\|ansi-regex\\)\\[\\\\\\\\/\\]/,
+          "/Users/g0bl1n/projects/nextjs-monorepo-tools/src/libs",
+        ],
+        "test": /\\\\\\.\\(tsx\\|ts\\|js\\|mjs\\|jsx\\)\\$/,
+        "use": Object {
+          "loader": "next-babel-loader",
+          "options": Array [
+            [Function],
+          ],
+        },
+      },
+      Object {
+        "oneOf": Array [
+          Array [
+            [Function],
+          ],
+          Array [
+            [Function],
+          ],
+          Array [
+            [Function],
+          ],
+        ],
+      },
+    ],
+    "strictExportPresence": true,
+  },
+  "resolve": Object {
+    "alias": Object {
+      "@foo/bar": "foo/bar",
+      "next/config": "next/dist/next-server/lib/runtime-config.js",
+      "next/head": "next/dist/next-server/lib/head.js",
+      "next/router": "next/dist/client/router.js",
+    },
+    "modules": Array [
+      "node_modules",
+    ],
+  },
+}
+`;
