@@ -60,8 +60,6 @@ function findFilepath(filename: string, currentPath: string[] = []): string {
   ++index;
   const resolvedPath = path.resolve(process.cwd(), ...currentPath, filename);
 
-  console.log("resolvedPath", resolvedPath);
-
   if (index > 10) {
     return "fail_path";
   }
