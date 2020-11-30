@@ -1,13 +1,16 @@
 ## nextjs-monorepo-tools
-nextjs-monorepo-tools is package that let you cnvert your nextjs project to monorepository.
+
+nextjs-monorepo-tools is package that let you convert your nextjs project to monorepo.
 Follow the example bellow to know how you can do it.
 
 ## Example Project
+
 Please check out the example project here – [nextjs-monorepo-example](https://github.com/dkaledin/nextjs-monorepo-example)
 
 ## Getting Started
 
 #### 1. You need to update your project's structure like this:
+
 ```
 .
 |-- apps
@@ -25,20 +28,25 @@ Please check out the example project here – [nextjs-monorepo-example](https://
 |-- package.json
 |-- tsconfig.json
 ```
-#### 2. Create in the root new `tsconfig.json` and  then add follow params:
+
+#### 2. Create in the root new `tsconfig.json` and then add follow params:
+
 ```json
 {
-	"compilerOptions": {
-		// ...
-		"baseUrl": ".",
-		"paths": {
-			"@common/common-component": ["libs/common-component"]
-		}
-	}
+  "compilerOptions": {
+    // ...
+    "baseUrl": ".",
+    "paths": {
+      "@common/common-component": ["libs/common-component"]
+    }
+  }
 }
 ```
+
 #### 3. Add to your project [nextjs-monorepo-tools](https://www.npmjs.com/package/nextjs-monorepo-tools) package as dependency.
+
 #### 4. Add custom **Webpack** configuration to `next.config.js`:
+
 ```js
 const { patchWebpackConfig } = require("nextjs-monorepo-tools");
 
@@ -50,10 +58,13 @@ const config = {
 
 module.exports = config;
 ```
-*That should be done for every project in your monorepo.*
+
+_That should be done for every project in your monorepo._
 
 #### 5. Update package.json
+
 Because how we have two projects we have to update `package.json` to have `dev`, `build`, `start` commands for each project.
+
 ```json
 "scripts": {
 	"dev:project-one": "next dev apps/project-one",
@@ -70,14 +81,15 @@ That's all!
 ## How to add new common module?
 
 Just create new directory in `libs` and add new section in `tsconfig.json`.
+
 ```json
 {
-	"compilerOptions": {
-		// ...
-		"paths": {
-			"@common/common-component": ["libs/common-component"],
-			"@common/common-component-two": ["libs/common-component-two"],
-		}
-	}
+  "compilerOptions": {
+    // ...
+    "paths": {
+      "@common/common-component": ["libs/common-component"],
+      "@common/common-component-two": ["libs/common-component-two"]
+    }
+  }
 }
 ```
