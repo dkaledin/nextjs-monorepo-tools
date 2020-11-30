@@ -1,12 +1,16 @@
 {
   "name": "nextjs-monorepo-tools",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "This package contains tools for converting NextJs project to monorepository",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "author": "Dmitriy Kaledin <dkaledin@gmail.com>",
   "repository": "https://github.com/dkaledin/nextjs-monorepo-tools.git",
-  "keywords": ["nextjs", "monorepo", "webpack"],
+  "keywords": [
+    "nextjs",
+    "monorepo",
+    "webpack"
+  ],
   "license": "MIT",
   "private": false,
   "scripts": {
