@@ -42,9 +42,12 @@ export function patchWebpackConfig({ commonDirs }: PatchWebpackConfigParams) {
         path.resolve(process.cwd(), dir)
       );
 
-      ((patchedConfig.module?.rules[0]?.include as string[]) || []).push(
-        ...resolverPathsOfCommonDirectories
-      );
+      const dirs =
+        (patchedConfig.module?.rules[0]?.include ||
+          patchedConfig.module?.rules[1]?.include||
+          (patchedConfig.module?.rules[2]?.oneOf && patchedConfig.module?.rules[2]?.oneOf[0]?.include) || []) as string[];
+
+      dirs.push(...resolverPathsOfCommonDirectories);
 
       return patchedConfig;
     };
