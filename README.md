@@ -1,7 +1,7 @@
 ## nextjs-monorepo-tools
 
 nextjs-monorepo-tools is package that let you convert your nextjs project to monorepo.
-Follow the example bellow to know how you can do it.
+Follow the example below to know how you can do it.
 
 ## Example Project
 
