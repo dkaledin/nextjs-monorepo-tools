@@ -42,11 +42,7 @@ export function patchWebpackConfig({ commonDirs }: PatchWebpackConfigParams) {
         path.resolve(process.cwd(), dir)
       );
 
-      const dirs =
-        (patchedConfig.module?.rules[0]?.include ||
-          patchedConfig.module?.rules[1]?.include||
-          (patchedConfig.module?.rules[2]?.oneOf && patchedConfig.module?.rules[2]?.oneOf[0]?.include) || []) as string[];
-
+      const dirs = getDirsWithPath(patchedConfig);
       dirs.push(...resolverPathsOfCommonDirectories);
 
       return patchedConfig;
@@ -55,6 +51,28 @@ export function patchWebpackConfig({ commonDirs }: PatchWebpackConfigParams) {
     console.error(error);
     process.exit(1);
   }
+}
+
+function getDirsWithPath(config: Configuration) {
+  let dirs: string[] = [];
+
+  if (config.module) {
+    for (let i = 0; i < config.module.rules?.length; i++) {
+      if (dirs.length) {
+        break;
+      }
+
+      const oneOfByConfig = config.module.rules[i].oneOf;
+
+      if (config.module.rules[i].include) {
+        dirs = config.module.rules[i].include as string[];
+      } else if (oneOfByConfig && oneOfByConfig[0]?.include) {
+        dirs = oneOfByConfig[0].include as string[];
+      }
+    }
+  }
+
+  return dirs;
 }
 
 let index = 0;
